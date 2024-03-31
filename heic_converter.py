@@ -29,12 +29,12 @@ def heic_convert(filepath, convert_type):
 
 
 # ディレクトリ内のheicファイルを捜索
-for filepath in target_dir.iterdir():  # is_file()で直下のディレクトリのみになる
+for filepath in target_dir.iterdir():
     if filepath.is_file() and filepath.suffix == ".heic":
         print(filepath)
         file_name = filepath.stem
         heic_convert(filepath, convert_type)
-        break
+
     else:
         print(f"heicファイルがありません")
 input(f"終了します：{target_dir}")
