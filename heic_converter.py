@@ -7,7 +7,7 @@ import pillow_heif
 from pathlib import Path
 
 # ターゲットとなるディレクトリをpath libをつかってtarget_dirに格納する
-target_dir = Path(r"ディレクトリのパスを入力してください")  # ここにディレクトリのパスを入力してください
+target_dir = Path(r"フォルダのパスを入力")  # ここにディレクトリのパスを入力してください
 convert_type = "jpg"  # 対応：JPG, PNG, BMP, TIFF, GIF, PPM, PGM, PBM, PNM
 print(f"変換を開始しています：{target_dir}")
 
@@ -23,7 +23,7 @@ def heic_convert(filepath, convert_type):
         heic_file.mode,
         heic_file.stride,
     )
-
+    # image.saveのリファレンス通りの入力形式に合わせる
     save_format = "JPEG" if convert_type == "jpg" else convert_type.upper()
     image.save(f"{target_dir}\\{file_name}.{convert_type}", save_format)
 
